@@ -27,6 +27,10 @@
         </div>
         <div class="gif_container">
             <img src="/codeforfun/images/v1.gif" alt="Cute animated illustration">
+           <video class="bg-video" autoplay loop playsinline>
+                <source src="/codeforfun/images/tdy_wth_ck1.mp4" type="video/mp4">
+            </video>
+                
         </div>
        
         <div class = "buttons">
@@ -65,20 +69,37 @@
 </script>
 
 <script>
-    document.addEventListener("DOMContentLoaded", function() {
-       
-        function play() {
-            //var audio = new Audio('https://dl.dropbox.com/s/c6aq63o2mwuvkui/Happy-Birthday-to-you-Singing-Bell.mp3');
-            //var audio = new Audio('/codeforfun/assets/Ye-Chori-Badi Drama-Queen-Hai.mp3');
-            var audio = new Audio('/codeforfun/assets/Happy-Birthday.mp3');
-            audio.play();
-        }
+    document.body.addEventListener("click", () => audio.play());
 
-        // play();
-       
-        window.addEventListener("mouseover", play);
-        // window.addEventListener("click", play);
+    document.addEventListener("DOMContentLoaded", function () {
+
+    let audioPlayed = false;
+    let audio = new Audio('/codeforfun/assets/Happy-Birthday.mp3');
+
+    document.body.addEventListener("mouseenter", function () {
+        if (!audioPlayed) {
+            audio.play().catch(err => {
+                console.log("Autoplay blocked:", err);
+            });
+            audioPlayed = true;
+        }
     });
+
+});
+    // document.addEventListener("DOMContentLoaded", function() {
+       
+    //     function play() {
+    //         //var audio = new Audio('https://dl.dropbox.com/s/c6aq63o2mwuvkui/Happy-Birthday-to-you-Singing-Bell.mp3');
+    //         //var audio = new Audio('/codeforfun/assets/Ye-Chori-Badi Drama-Queen-Hai.mp3');
+    //         var audio = new Audio('/codeforfun/assets/Happy-Birthday.mp3');
+    //         audio.play();
+    //     }
+
+    //     // play();
+       
+    //     window.addEventListener("mouseover", play);
+    //     // window.addEventListener("click", play);
+    // });
 </script>
 
 </html>
